@@ -1,5 +1,5 @@
 <h2 align="center">
-  SISTEMA DE CADASTRO DE CONTROLE - ADMIN E USER
+  ADMIN E USER - SISTEMA DE CADASTRO
 </h2>
 
 <p>
@@ -9,7 +9,7 @@
 </p>
 
 <h4 align="left">
-  Tela inicial para login de usuário.
+  Tela inicial para login.
 </h4>
 
 ![Resultado de momento do projeto](assets/image/login2.png)
@@ -32,7 +32,7 @@ Crie um banco de dados e execute as instruções SQLs abaixo para criar a tabela
 ---
 
 <h4 align="left">
-  Caso o usuário ainda não possua cadastro, o mesmo é direcionado para tela de `Resgistre`.
+  Caso o usuário ainda não possua cadastro.
 </h4>
 
 ![Resultado de momento do projeto](assets/image/registre2.png)
@@ -42,10 +42,6 @@ Crie um banco de dados e execute as instruções SQLs abaixo para criar a tabela
 </h4>
 
 ![Resultado de momento do projeto](assets/image/admin2_2.png)
-
-<h4 align="left">
-  Tela para cadastro de usuário, neste caso somente o administrador tem acesso, com isso o mesmo poderá cadastrar um novo admin ou um usuário comum.
-</h4>
 
 <h4 align="left">
   Ao finalizar o processo de cadastro, o sistema apresenta a tela de confirmação.
