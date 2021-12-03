@@ -2,7 +2,7 @@
 session_start();
 
 // conexao com o database
-$conn = mysqli_connect("localhost", "root", "matrix0101", "db_user_admin"); 
+$conn = mysqli_connect("localhost", "", "", ""); 
 
 // declaração de variaveis
 $username = "";
