@@ -4,26 +4,39 @@
 body {
 	font-size: 120%;
 	background: #F8F8FF;
+	background-color: #277979;  /* 4f4e56 */
 }
 
 .header {
 	width: 40%;
 	margin: 50px auto 0px;
 	color: white;
-	background: #5F9EA0;
+	background: #242738;  
 	text-align: center;
-	border: 1px solid #B0C4DE;
+	font-size: 30px;
 	border-bottom: none;
 	border-radius: 10px 10px 0px 0px;
 	padding: 20px; 
 }
 
-form, content {
+.header-admin {
+	width: 40%;
+	margin: 50px auto 0px;
+	color: white;
+	background: #242738;  
+	text-align: center;
+	font-size: 30px;
+	border-bottom: none;
+	border-radius: 10px 10px 0px 0px;
+	padding: 20px; 
+}
+
+form, .content {
 	width: 40%;
 	margin: 0px auto;
 	padding: 20px;
-	border: 1px solid #B0C4DE;
 	background: white;
+	background-color: #242738;
 	border-radius: 0px 0px 10px 10px;
 }
 
@@ -35,6 +48,7 @@ form, content {
 	display: block;
 	text-align: left;
 	margin: 3px;
+	color: white;
 }
 
 .input-group input {
@@ -43,7 +57,8 @@ form, content {
 	padding: 5px 10px;
 	font-size: 16px;
 	border-radius: 5px;
-	border: 1px solid gray;
+	color: white;
+	background: #151827;
 }
 
 #user-type {
@@ -60,8 +75,8 @@ form, content {
 	padding: 10px;
 	font-size: 15px;
 	color: white;
-	background: #5F9EA0;
-	border: none;
+	background: #151827;
+	border: 1px solid #B0C4DE;
 	border-radius: 5px;
 }
 
@@ -72,7 +87,7 @@ form, content {
 	border: 1px solid #a94442;
 	color: #a94442;
 	border-radius: 5px;
-	text-align: left;-
+	text-align: left;
 }
 
 .success {
@@ -84,19 +99,24 @@ form, content {
 
 .profile-info img {
 	display: inline-block;
-	width: 50px;
-	height: 50px;
-	margin: 5px;
+	width: 60px;
+	height: 60px;
+	margin: 10px;
 	float: left;
 }
 
 .profile-info div {
 	display: inline-block;
-	margin: 5px;
+	margin: 10px;
+	color: white;
 }
 
 .profile-info:after {
 	content: "";
 	display: block;
 	clear: both;
+}
+
+p {
+	color: white;
 }
