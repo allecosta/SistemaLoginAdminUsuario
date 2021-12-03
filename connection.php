@@ -2,66 +2,17 @@
 session_start();
 
 // conexao com o database
-$conn = mysqli_connect("localhost", "", "", "db_user_admin"); 
+$conn = mysqli_connect("localhost", "root", "matrix0101", "db_user_admin"); 
 
 // declaração de variaveis
 $username = "";
 $email = "";
 $errors = array();
 
-
 	// chama a função registro se register-btn for clicado
-	if (isset($_POST['register-btn'])) {
+	if (isset($_POST['register_btn'])) {
 		register();
 	}
-
-// login do usuario
-function login() 
-{
-	global $conn, $username, $errors;
-
-	$username = e($_POST['usuario']);
-	$password = e($_POST['senha']);
-
-	// verifica se o formulario está preenchido corretamente
-	if (empty($username)) {
-		array_push($errors, "É necessario informar o nome de usuário");
-	}
-
-	if (empty($password)) {
-		array_push($errors, "É necessario informar a senha");
-	}
-
-	// realiza o login se não houver erros
-	if (count($errors) == 0) {
-		$password = md5($password);
-		$query = "SELECT * FROM users WHERE usuario='$username' AND senha='$password' LIMIT 1";
-		$result = mysqli_query($conn, $query);
-
-		// usuario identificado
-		if (mysqli_num_rows($result) == 1) {
-
-			// verifica se é usuário ou admin
-			$loggedUser = mysqli_fetch_assoc($result);
-
-			if ($loggedUser['user_type'] == 'admin') {
-				$_SESSION['user'] = loggedUser;
-				$_SESSION['success'] = "Você está logado!";
-
-				header("location: admin/home.php");
-
-			} else {
-				$_SESSION['user'] = $loggedUser;
-				$_SESSION['success'] = "Você está logado!";
-
-				header("location: index.php");
-			}
-
-		} else {
-			array_push($errors, "Houve um erro usuario/senha");
-		}
-	}
-} 
 
 // registro de usuario
 function register() 
@@ -89,18 +40,19 @@ function register()
 	}
 
 	if ($password1 != $password2) {
-		array_push($errors, "A senhas informadas não são iguais ");
+		array_push($errors, "A senhas informadas não são iguais");
 	}
 
 	// registra o usuário se não houver erros
 	if (count($errors) == 0) {
 		// encriptando a senha antes de salvar no database
-		$password = md5($password1);
+		$password = md5($password1); 
 
 		if (isset($_POST['user_type'])) {
-			$userType = e($_post['user_type']);
+			$userType = e($_POST['user_type']);
 			$query = "INSERT INTO users (usuario, email, senha, user_type) VALUES ('$username', '$email', '$password', '$userType')";
 			mysqli_query($conn, $query);
+			$_SESSION['success'] = "Usuário criado com sucesso!";
 
 			header("location: home.php");
 
@@ -167,6 +119,60 @@ function isLoggedIn()
 
 		header("location: login.php");
 	}
+
+	// chama a função login se login-btn for clicado
+	if (isset($_POST['login-btn'])) {
+		login();
+	}
+
+// login do usuario
+function login() 
+{
+	global $conn, $username, $errors;
+
+	$username = e($_POST['usuario']);
+	$password = e($_POST['senha']);
+
+	// verifica se o formulario está preenchido corretamente
+	if (empty($username)) {
+		array_push($errors, "É necessario informar o nome de usuário");
+	}
+
+	if (empty($password)) {
+		array_push($errors, "É necessario informar a senha");
+	}
+
+	// realiza o login se não houver erros
+	if (count($errors) == 0) {
+		// encriptando a senha antes de salvar no database
+		$password = md5($password); 
+
+		$query = "SELECT * FROM users WHERE usuario='$username' AND senha='$password' LIMIT 1";
+		$result = mysqli_query($conn, $query);
+
+		// usuario identificado
+		if (mysqli_num_rows($result) == 1) {
+			// verifica se é usuário ou admin
+			$loggedUser = mysqli_fetch_assoc($result);
+
+			if ($loggedUser['user_type'] == 'admin') {
+				$_SESSION['user'] = $loggedUser;
+				$_SESSION['success'] = "Você está logado!";
+
+				header("location: admin/home.php");
+
+			} else {
+				$_SESSION['user'] = $loggedUser;
+				$_SESSION['success'] = "Você está logado!";
+
+				header("location: index.php");
+			}
+
+		} else {
+			array_push($errors, "Houve um erro usuario/senha");
+		}
+	}
+} 
 
 function isAdmin() 
 {

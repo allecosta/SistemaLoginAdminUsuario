@@ -33,6 +33,9 @@ include('../connection.php');
 		</style>
 	</head>
 	<body>
+		<div class="header-admin">
+			<h2>Administrador</h2>
+		</div>
 		<div class="content">
 			<!-- mensagem de notificação -->
 			<?php if (isset($_SESSION['success'])) : ?>

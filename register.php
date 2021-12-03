@@ -1,4 +1,4 @@
-<?php include ('connection.php') ?>
+<?php include('connection.php') ?>
 
 <!DOCTYPE html>
 <html>
@@ -18,11 +18,11 @@
 
 			<div class="input-group">
 				<label>Usuário</label>
-				<input type="text" name="usuario" value="<?php echo $username; ?>" >
+				<input type="text" name="usuario" value="<?php echo $username; ?>">
 			</div>
 			<div class="input-group">
 				<label>Email</label>
-				<input type="text" name="email" value="<?php echo $password; ?>" >
+				<input type="text" name="email" value="<?php echo $email; ?>">
 			</div>
 			<div class="input-group">
 				<label>Senha</label>

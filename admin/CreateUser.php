@@ -18,7 +18,7 @@
 		</style>
 	</head>
 	<body>
-		<div class="header">
+		<div class="header-admin">
 			<h2>Administrador</h2>
 		</div>
 
@@ -28,11 +28,11 @@
 
 			<div class="input-group">
 				<label>Usuário</label>
-				<input type="text" name="usuario" value="<?php echo $username; ?>" >
+				<input type="text" name="usuario" value="<?php echo $username; ?>">
 			</div>
 			<div class="input-group">
 				<label>Email</label>
-				<input type="email" name="email" value="<?php echo $email; ?>" >
+				<input type="email" name="email" value="<?php echo $email; ?>">
 			</div>
 			<div class="input-group">
 				<label>Tipo de Usuário</label>
